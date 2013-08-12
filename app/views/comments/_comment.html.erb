@@ -1,0 +1,18 @@
+<% comments.each do |comment| %>
+<tr>
+<td> <%= link_to t('.show', :default => t("helpers.links.show")),
+	      post_comment_path(post[:id], comment.id), :class => 'btn btn-mini btn-normal' %>
+</td>
+<td><%= comment.commenter %></td>
+<td><%= comment.body %></td>
+<td>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	      edit_post_comment_path(post[:id], comment.id), :class => 'btn btn-mini' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	      post_comment_path(post[:id], comment.id),
+	      :method => :delete,
+	      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+	      :class => 'btn btn-mini btn-danger' %>
+</td>
+</tr>
+<% end %>
