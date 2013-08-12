@@ -13,6 +13,7 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "custom", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
@@ -48,7 +49,7 @@
           </a>
           <%= link_to "Categories", posts_path,  :class => 'brand'  %>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
+            <ul class="nav pull-right" >
               <li><%= link_to "Help", "/"  %></li>
             </ul>
           </div><!--/.nav-collapse -->

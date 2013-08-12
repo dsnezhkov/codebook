@@ -11,6 +11,8 @@
 
 <hr>
 
+<div class="center hero-unit">
+
 <h3>Comments:  (<%= @post.comments.count %>)
  <%= link_to t('.new', :default => t("helpers.links.new")),
     		new_post_comment_path(@post.id),
@@ -24,6 +26,7 @@
 	</table>
 <% end %>
 
+<div>
 
 
  
