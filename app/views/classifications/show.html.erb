@@ -1,0 +1,63 @@
+<%- model_class = Classification -%>
+
+<div class="well well-small">
+  <dl class="dl-horizontal">
+    <table>
+      <tr>
+        <td>
+          <%= link_to 'Classifications', 
+            {controller: "classifications", 
+              action: "index"},
+              :class => 'btn btn-default icon-arrow-up'  %>
+        </td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+            edit_classification_path(@classification.id), :class => 'btn btn-warning icon-edit' %>
+        </td>
+      </tr>
+    </table>
+  </dl>
+</div>
+
+<hr>
+
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs nav-pills">
+    <li class="active"><a href="#tab1" data-toggle="tab">Title</a></li>
+    <li><a href="#tab2" data-toggle="tab">Overview</a></li>
+    <li><a href="#tab3" data-toggle="tab">Guidance</a></li>
+    <li><a href="#tab4" data-toggle="tab">Flaws</a></li>
+  </ul>
+  <div class="tab-content well">
+
+        <div class="tab-pane active" id="tab1">
+           <p><%= @classification.title %></p>
+        </div>
+        <div class="tab-pane" id="tab2" >
+           <p><%= raw(@classification.overview) %></p>
+        </div>
+        <div class="tab-pane" id="tab3" >
+           <p><%= raw(@classification.guidance) %></p>
+        </div>
+
+        <div class="tab-pane" id="tab4">
+          <h3>Flaws:  (<%= @classification.flaws.count %>)
+           <%= link_to t('.new', :default => t("helpers.links.new")),
+                  new_classification_flaw_path(@classification.id),
+                        :class => 'btn btn-primary' %>
+          </h3>
+
+          <% if @classification.flaws.any? %>
+            <table class="table table-striped">
+              <tbody>
+              <%= render :partial => "flaws/flaw", :locals => { :classification => @classification, :flaws => @classification.flaws } %>
+              </tbody>
+            </table>
+          <% end %>
+         </div>
+  </div>
+</div>
+
+<hr>
+
+

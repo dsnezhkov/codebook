@@ -1,0 +1,19 @@
+
+<% flaws.each do |flaw| %>
+<tr>
+<td> <%= link_to t('.show', :default => t("helpers.links.show")),
+	      classification_flaw_path(classification[:id], flaw.id), :class => 'btn btn-mini btn-normal' %>
+</td>
+<td><%= flaw.title %></td>
+<td>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	      edit_classification_flaw_path(classification[:id], flaw.id), :class => 'btn btn-mini btn-warning' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	      classification_flaw_path(classification[:id], flaw.id),
+	      :method => :delete,
+	      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+	      :class => 'btn btn-mini btn-danger' %>
+</td>
+</tr>
+<% end %>
+

@@ -1,0 +1,40 @@
+<%- model_class = Classification -%>
+<div class="page-header">
+  <h3>Classifications (<%= (@classifications.count) %>)
+	<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_classification_path,
+            :class => 'btn btn-primary icon-plus' %></h3>
+</div>
+
+<% if @classifications.any? %>
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th> <i class="icon-eye-open"</i></th>
+      <th> Finding Header </th>
+      <th> Manage </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @classifications.each do |classification| %>
+      <tr>
+        <td> <%= link_to "View...",
+                      classification_path(classification), :class => 'btn btn-normal icon-eye-open ' %>
+	</td>	
+        <td><%= classification.title %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_classification_path(classification), :class => 'btn btn-warning icon-edit' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      classification_path(classification),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger icon-remove' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<% end %>

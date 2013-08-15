@@ -1,0 +1,42 @@
+<%= form_for ([@classification, @flaw]), :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls well">
+      <%= f.select :state, options_for_select(%w[L1 L2 L3], @flaw.state) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls well">
+      <%= f.text_field :title, :class => 'text_field', :size => 200 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Description", :class => 'control-label' %>
+    <div class="controls well">
+      <%= f.text_area :description, 
+              :class => 'text_area', 
+              :placeholder => 'Enter text ...', 
+              :style => "width: 810px; height: 450px" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Recommendation (Delta)", :class => 'control-label' %>
+    <div class="controls well">
+      <%= f.text_area :recommendation, 
+              :class => 'text_area', 
+              :placeholder => 'Enter text ...', 
+              :style => "width: 810px; height: 450px" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+    <%= link_to "Cancel", 
+        {controller: "classifications", 
+          action: "show", 
+          id: @classification.id},
+          :class => 'btn btn-default '  %>
+  </div>
+<% end %>
+
