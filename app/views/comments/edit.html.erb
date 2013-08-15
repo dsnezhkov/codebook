@@ -1,5 +1,19 @@
 <%- model_class = Comment -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+	<h3> Finding <% ver=(@post.id).to_s << "." << (@comment.id).to_s %>
+  	<%= ver.to_s %>
+  	</h3>
 </div>
 <%= render :partial => 'form' %>
+
+<script type="text/javascript">
+  $('#comment_description').wysihtml5({
+   "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+   "emphasis": true, //Italics, bold, etc. Default true
+   "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+   "html": true, //Button which allows you to edit the generated HTML. Default false
+   "link": true, //Button to insert a link. Default true
+   "image": true, //Button to insert an image. Default true,
+   "color": true //Button to change color of font
+  });
+</script>

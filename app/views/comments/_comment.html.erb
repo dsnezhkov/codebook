@@ -4,11 +4,10 @@
 <td> <%= link_to t('.show', :default => t("helpers.links.show")),
 	      post_comment_path(post[:id], comment.id), :class => 'btn btn-mini btn-normal' %>
 </td>
-<td><%= comment.commenter %></td>
-<td><%= comment.body %></td>
+<td><%= comment.title %></td>
 <td>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-	      edit_post_comment_path(post[:id], comment.id), :class => 'btn btn-mini' %>
+	      edit_post_comment_path(post[:id], comment.id), :class => 'btn btn-mini btn-warning' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
 	      post_comment_path(post[:id], comment.id),
 	      :method => :delete,

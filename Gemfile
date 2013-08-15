@@ -43,3 +43,4 @@ gem 'jbuilder', '~> 1.2'
 # gem 'debugger'
 
 gem "twitter-bootstrap-rails"
+gem 'bootstrap-wysihtml5-rails'

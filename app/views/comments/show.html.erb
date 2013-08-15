@@ -1,12 +1,43 @@
 <%- model_class = Comment -%>
 
-<div class="center hero-unit">
-
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:commenter) %>:</strong></dt>
-  <dd><%= @comment.commenter %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
-  <dd><%= @comment.body %></dd>
-</dl>
-
+<div class="well well-small">
+	<dl class="dl-horizontal">
+		<table>
+			<tr>
+				<td>
+				  <%= link_to '<-- Category', 
+							{controller: "posts", 
+							action: "show", 
+							id: @post.id},
+							:class => 'btn btn-default'  %>
+				</td>
+				<td>
+  					<%= link_to t('.edit', :default => t("helpers.links.edit")),
+	      			edit_post_comment_path(@post.id, @comment.id), :class => 'btn btn-warning' %>
+				</td>
+			</tr>
+		</table>
+	 </dl>
 </div>
+
+
+<div class="tabbable tabs-left">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">State</a></li>
+    <li><a href="#tab2" data-toggle="tab">Title</a></li>
+    <li><a href="#tab3" data-toggle="tab">Description</a></li>
+  </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+           <span class="uneditable-input"><%= (@comment.state).blank? ? "N/A": @comment.state  %></span>
+        </div>
+        <div class="tab-pane" id="tab2" >
+           <p><%= @comment.title %></p>
+        </div>
+        <div class="tab-pane" id="tab3">
+           <p><%= raw(@comment.description) %></p>
+		</div>
+	</div>
+</div>
+
+

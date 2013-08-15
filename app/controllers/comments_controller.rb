@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 
     ## Mass assignment is disabled. needto explicitly permit (ref: https://github.com/rails/strong_parameters )
     if @comment.update_attributes(comment_params)
+      #redirect_to controller: :posts, action: :show, id: @post.id
       redirect_to action: :show, id: @comment.id
     else
       render 'edit'
@@ -45,6 +46,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:commenter, :body)
+      params.require(:comment).permit(:title, :description, :state)
     end
 end

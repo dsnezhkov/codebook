@@ -39,7 +39,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
+    <div class="navbar navbar-inverse navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -72,12 +72,13 @@
 
         <div class="span9">
           <%= bootstrap_flash %>
+          <%#= debug(params) if Rails.env.development? %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>Findings Reporter</p>
+
       </footer>
 
     </div> <!-- /container -->

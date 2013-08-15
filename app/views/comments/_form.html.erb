@@ -1,18 +1,30 @@
 <%= form_for ([@post, @comment]), :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :commenter, :class => 'control-label' %>
+    <%= f.label :state, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :commenter, :class => 'text_field' %>
+      <%= f.select :state, options_for_select(%w[L1 L2 L3], @comment.state) %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :body, :class => 'control-label' %>
+    <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :body, :class => 'text_field' %>
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label "Description", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area', :style => "width: 810px; height: 450px" %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+    <%= link_to "Cancel", 
+        {controller: "posts", 
+          action: "show", 
+          id: @post.id},
+          :class => 'btn btn-default '  %>
   </div>
 <% end %>
+

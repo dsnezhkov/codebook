@@ -1,39 +1,40 @@
 <%- model_class = Post -%>
 <div class="page-header">
-  <h3><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+  <h3>Categories (<%= (@posts.count) %>)
 	<%= link_to t('.new', :default => t("helpers.links.new")),
             new_post_path,
-            :class => 'btn btn-primary' %></h3>
+            :class => 'btn btn-primary icon-plus' %></h3>
 </div>
-<div class="center hero-unit">
-<table class="table table-striped">
+
+<% if @posts.any? %>
+<div>
+<table class="table">
   <thead>
     <tr>
-      <th><%= %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:text) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th> <i class="icon-eye-open"</i></th>
+      <th> Finding Header </th>
+      <th> Manage </th>
     </tr>
   </thead>
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td> <%= link_to t('.show', :default => t("helpers.links.show")),
-                      post_path(post), :class => 'btn btn-mini btn-normal' %>
+        <td> <%= link_to "View...",
+                      post_path(post), :class => 'btn btn-normal icon-eye-open ' %>
 	</td>	
         <td><%= post.title %></td>
-        <td><%= post.text %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_post_path(post), :class => 'btn btn-mini' %>
+                      edit_post_path(post), :class => 'btn btn-warning icon-edit' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       post_path(post),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-danger icon-remove' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+<% end %>
