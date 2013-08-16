@@ -16,10 +16,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th> &darr; </th>
-      <th> Title </th>
-      <th> Flaw Count(#) </th>
-      <th> Manage </th>
+      <th></th>
+      <th> Class </th>
+      <th> Flaws Count(#) </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,7 +29,12 @@
                       classification_path(classification), :class => 'btn btn-normal icon-eye-open ' %>
 	</td>	
         <td><%= classification.title %></td>
-        <td><%= (classification.flaws.any?) ? classification.flaws.count : "None" %></td>
+        
+        <td>
+            <span class="badge badge-inverse">
+            <%= (classification.flaws.any?) ? classification.flaws.count : "None" %>
+            </span>
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_classification_path(classification), :class => 'btn btn-warning icon-edit' %>

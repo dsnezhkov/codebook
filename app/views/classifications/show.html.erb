@@ -24,22 +24,22 @@
   <h3> <%= @classification.title %> </h3>
 </div>
 
-<div class="tabbable tabs-left">
-  <ul class="nav nav-tabs nav-pills">
-    <li><a href="#tab1" data-toggle="tab">Overview</a></li>
-    <li><a href="#tab2" data-toggle="tab">Guidance</a></li>
-    <li><a href="#tab3" data-toggle="tab">Flaws</a></li>
+<div class="tabbable">
+  <ul class="nav nav-pills">
+    <li><a href="#tab1" data-toggle="tab" class="btn btn-default icon-th-list">&nbsp; Class Overview</a></li>
+    <li><a href="#tab2" data-toggle="tab" class="btn btn-default icon-hand-right">&nbsp; Remediation Guidance</a></li>
+    <li><a href="#tab3" data-toggle="tab" class="btn btn-default icon-fire">&nbsp; Pending Flaws</a></li>
   </ul>
-  <div class="tab-content well">
+  <div class="tab-content">
 
-        <div class="tab-pane" id="tab1" >
+        <div class="tab-pane well" id="tab1" >
            <p><%= raw(@classification.overview) %></p>
         </div>
-        <div class="tab-pane" id="tab2" >
+        <div class="tab-pane well" id="tab2" >
            <p><%= raw(@classification.guidance) %></p>
         </div>
 
-        <div class="tab-pane" id="tab3">
+        <div class="tab-pane well" id="tab3">
           <h3>Flaws:  (<%= @classification.flaws.count %>)
            <%= link_to t('.new', :default => t("helpers.links.new")),
                   new_classification_flaw_path(@classification.id),
@@ -57,6 +57,5 @@
   </div>
 </div>
 
-<hr>
 
 
