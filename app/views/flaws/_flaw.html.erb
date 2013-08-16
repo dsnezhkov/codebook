@@ -4,6 +4,8 @@
 <td> <%= link_to t('.show', :default => t("helpers.links.show")),
 	      classification_flaw_path(classification[:id], flaw.id), :class => 'btn btn-mini btn-normal' %>
 </td>
+<td><%= flaw.state %></td>
+<td><%= raw(get_mnemonic_priority(flaw.priority)) %></td>
 <td><%= flaw.title %></td>
 <td>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

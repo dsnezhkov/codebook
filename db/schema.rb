@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815200631) do
+ActiveRecord::Schema.define(version: 20130815214328) do
 
   create_table "classifications", force: true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130815200631) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "guidance"
+    t.text     "reference"
   end
 
   create_table "flaws", force: true do |t|
@@ -29,6 +30,9 @@ ActiveRecord::Schema.define(version: 20130815200631) do
     t.datetime "updated_at"
     t.string   "state"
     t.text     "recommendation"
+    t.text     "affects"
+    t.text     "reference"
+    t.integer  "priority"
   end
 
 end

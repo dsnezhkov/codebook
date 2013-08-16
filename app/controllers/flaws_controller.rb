@@ -46,6 +46,7 @@ class FlawsController < ApplicationController
   private
 
     def flaw_params
-      params.require(:flaw).permit(:title, :description, :recommendation, :state)
+      params.require(:flaw).permit(:title, 
+                :description, :recommendation, :state, :priority)
     end
 end

@@ -1,5 +1,5 @@
 class Classification < ActiveRecord::Base
-  has_many :flaws, dependent: :destroy
+  has_many :flaws, :order => "priority ASC", dependent: :destroy
   
   validates :title,
     presence: true,

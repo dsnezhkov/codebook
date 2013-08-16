@@ -6,6 +6,19 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :priority, :class => 'control-label' %>
+    <div class="controls well">
+      <%= f.select :priority, options_for_select(
+              { 
+                  "High" => 1,
+                  "Medium" => 2,
+                  "Low" => 3,
+                  "Info" => 4,
+                  "Best Practice" => 5
+              }, @flaw.priority) %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls well">
       <%= f.text_field :title, :class => 'text_field', :size => 200 %>

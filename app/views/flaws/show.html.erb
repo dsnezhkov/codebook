@@ -1,43 +1,39 @@
 <%- model_class = Flaw -%>
-<div class="well well-small">
-	<dl class="dl-horizontal">
-		<table>
-			<tr>
-				<td>
-				  <%= link_to 'Classification', 
-							{controller: "classifications", 
-							action: "show", 
-							id: @classification.id},
-							:class => 'btn btn-default icon-arrow-up'  %>
-				</td>
-				<td>
-  					<%= link_to t('.edit', :default => t("helpers.links.edit")),
-	      			edit_classification_flaw_path(@classification.id, @flaw.id), :class => 'btn btn-warning icon-edit' %>
-				</td>
-			</tr>
-		</table>
-	 </dl>
+<div class="pull-right">
+  <dl class="dl-horizontal">
+    <table>
+      <tr>
+        <td>
+          <%= link_to 'Classifications', 
+            {controller: "classifications", 
+              action: "show",
+              id: @classification.id
+              },
+              :class => 'btn btn-default icon-arrow-up'  %>
+        </td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        				edit_classification_flaw_path(@classification.id, @flaw.id), 
+        				:class => 'btn btn-warning icon-edit' %> 
+            </td>
+      </tr>
+    </table>
+  </dl>
 </div>
 
-
-<div class="tabbable tabs-left">
-  <ul class="nav nav-tabs nav-pills">
-    <li class="active"><a href="#tab1" data-toggle="tab">Threat State</a></li>
-    <li><a href="#tab2" data-toggle="tab">Title</a></li>
-    <li><a href="#tab3" data-toggle="tab">Description</a></li>
-    <li><a href="#tab4" data-toggle="tab">Recommendation</a></li>
+<div class="well">
+	<h3> <%= @flaw.title %> ( <%= @flaw.state %> ) - <%= raw(get_mnemonic_priority(@flaw.priority)) %> </h3>
+</div>
+<div class="tabbable span9">
+  <ul class="nav nav-pills">
+    <li><a href="#tab1" data-toggle="tab">Description</a></li>
+    <li><a href="#tab2" data-toggle="tab">Recommendation</a></li>
   </ul>
-    <div class="tab-content hero-unit">
-        <div class="tab-pane active" id="tab1">
-           <span class="uneditable-input"><%= (@flaw.state).blank? ? "N/A": @flaw.state  %></span>
-        </div>
-        <div class="tab-pane" id="tab2" >
-           <p><%= @flaw.title %></p>
-        </div>
-        <div class="tab-pane" id="tab3">
+    <div class="tab-content">
+        <div class="tab-pane hero-unit" id="tab1">
            <p><%= raw(@flaw.description) %></p>
 		</div>
-        <div class="tab-pane" id="tab4">
+        <div class="tab-pane hero-unit" id="tab2">
            <p><%= raw(@flaw.recommendation) %></p>
 		</div>
 	</div>

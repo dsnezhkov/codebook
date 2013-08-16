@@ -6,13 +6,19 @@
             :class => 'btn btn-primary icon-plus' %></h3>
 </div>
 
+<div class="hero-unit">
+  <%= bar_chart (@charthash) %>
+</div>
+
+<div class="hero-unit">
 <% if @classifications.any? %>
-<div>
+
 <table class="table">
   <thead>
     <tr>
-      <th> <i class="icon-eye-open"</i></th>
-      <th> Finding Header </th>
+      <th> &darr; </th>
+      <th> Title </th>
+      <th> Flaw Count(#) </th>
       <th> Manage </th>
     </tr>
   </thead>
@@ -23,6 +29,7 @@
                       classification_path(classification), :class => 'btn btn-normal icon-eye-open ' %>
 	</td>	
         <td><%= classification.title %></td>
+        <td><%= (classification.flaws.any?) ? classification.flaws.count : "None" %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_classification_path(classification), :class => 'btn btn-warning icon-edit' %>

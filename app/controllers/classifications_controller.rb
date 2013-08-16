@@ -4,6 +4,11 @@ class ClassificationsController < ApplicationController
 
   def index
     @classifications = Classification.all
+    @charthash=Hash.new
+    
+    @classifications.each do |cl|
+      @charthash[cl.title] = (cl.flaws.any?) ? cl.flaws.count : 0
+    end
   end
 
   def show
@@ -51,4 +56,5 @@ class ClassificationsController < ApplicationController
     def classification_params
       params.require(:classification).permit(:title, :overview, :guidance)
     end
+
 end
