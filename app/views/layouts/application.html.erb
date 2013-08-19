@@ -51,6 +51,14 @@
           <%= link_to "Findings", classifications_path, :class => 'brand' %>
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right" >
+              <li>
+                  
+                    <%= form_tag classifications_path, :method => :get do %>
+                      <p>
+                        <%= text_field_tag :search, params[:search] %>
+                        <%= submit_tag "Search", :name => nil %>
+                    <% end %> 
+              </li>
               <li><%= link_to "Home", "/"  %></li>
             </ul>
           </div><!--/.nav-collapse -->

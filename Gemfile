@@ -45,3 +45,5 @@ gem 'jbuilder', '~> 1.2'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-wysihtml5-rails'
 gem "chartkick"
+gem 'sunspot_rails'
+

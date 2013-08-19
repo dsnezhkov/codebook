@@ -5,6 +5,7 @@
       <%= f.select :state, options_for_select(%w[L1 L2 L3], @flaw.state) %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :priority, :class => 'control-label' %>
     <div class="controls well span6">
@@ -18,6 +19,7 @@
               }, @flaw.priority) %>
     </div>
   </div>
+
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls well span6">
