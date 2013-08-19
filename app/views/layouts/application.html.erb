@@ -52,10 +52,12 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right" >
               <li>
-                  
-                    <%= form_tag classifications_path, :method => :get do %>
+                    <%= form_tag( 
+                        {:controller => 'search', :action => 'index'},
+                        :method => :get, :class => 'navbar-search pull-left' ) do %>
                       <p>
-                        <%= text_field_tag :search, params[:search] %>
+                        <%= text_field_tag :search, params[:search],  
+                              :placeholder => 'search flaws ...', :class => 'search-query'  %>
                         <%= submit_tag "Search", :name => nil %>
                     <% end %> 
               </li>

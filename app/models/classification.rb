@@ -6,13 +6,4 @@ class Classification < ActiveRecord::Base
     length: { minimum: 5 }
 
 
-
-  searchable do
-    text :title
-    text :flaws do
-      flaws.map { |flaw| flaw.title }
-    end
-
-  end
-
 end

@@ -1,0 +1,25 @@
+<h3>Results (<%= (@flaws.count) %>):  </h3> 
+
+
+<div>
+  <% @search.each_hit_with_result do |hit, flaw| -%>
+    <div class="well">
+      <%=link_to flaw.title, 
+      			classification_flaw_path(
+      					:id => flaw.id, 
+      					:classification_id => flaw.classification_id, 
+      					) %>
+
+       <p><%= if ( not hit.highlight(:description).nil? )
+      		  sanitize(hit.highlight(:description).format { |fragment| content_tag(:strong, fragment)}, tags: %w(pre em nbsp strong) )
+      		end 
+      		%> </p>
+
+       <p><%= if ( not hit.highlight(:title).nil? )
+      		  raw( hit.highlight(:title).format { |fragment| content_tag(:strong, fragment)} )
+      		end
+      		 %></p>
+    </div>
+  <% end -%>
+</div>
+
