@@ -3,13 +3,7 @@ class ClassificationsController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "password", except: [:index, :show]
 
   def index
-    @charthash=Hash.new
     @classifications = Classification.all
-    
-    @classifications.each do |cl|
-      @charthash[cl.title] = (cl.flaws.any?) ? cl.flaws.count : 0
-    end
-   
   end
 
 

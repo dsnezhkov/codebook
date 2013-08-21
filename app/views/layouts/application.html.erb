@@ -44,13 +44,15 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </a>
-          <%= link_to "Findings", classifications_path, :class => 'brand' %>
           <div class="container-fluid nav-collapse">
-            <ul class="nav pull-right" >
+            <ul class="nav pull-left" >
+              <li>
+                <%= link_to "Findings", classifications_path, :class => 'brand' %>
+              </li>
+              <li>
+                <%= link_to "Metrics", metrics_index_path, :class => 'brand' %>
+              </li>
               <li>
                     <%= form_tag( 
                         {:controller => 'search', :action => 'index'},
@@ -58,7 +60,7 @@
                       <p>
                         <%= text_field_tag :search, params[:search],  
                               :placeholder => 'search flaws ...', :class => 'search-query'  %>
-                        <%= submit_tag "Search", :name => nil %>
+                        <%= submit_tag "Search", :name => nil, :class => "btn btn-info" %>
                     <% end %> 
               </li>
               <li><%= link_to "Home", "/"  %></li>

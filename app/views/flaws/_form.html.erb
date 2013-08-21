@@ -1,27 +1,33 @@
 <%= form_for ([@classification, @flaw]), :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-actions">
+    <%= f.submit "Update", :class => 'btn btn-primary' %>
+    <%= link_to "Cancel", 
+        {controller: "classifications", 
+          action: "show", 
+          id: @classification.id},
+          :class => 'btn btn-default '  %>
+  </div>
+  
   <div class="control-group">
     <%= f.label :state, :class => 'control-label' %>
     <div class="controls well span6">
-      <%= f.select :state, options_for_select(%w[L1 L2 L3], @flaw.state) %>
+      <%= f.select :state, 
+            options_from_collection_for_select(@states, 'statename', 'statename' , 
+               @flaw.state) %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :priority, :class => 'control-label' %>
     <div class="controls well span6">
-      <%= f.select :priority, options_for_select(
-              { 
-                  "High" => 1,
-                  "Medium" => 2,
-                  "Low" => 3,
-                  "Info" => 4,
-                  "Best Practice" => 5
-              }, @flaw.priority) %>
+      <%= f.select :priority, 
+            options_from_collection_for_select(@priorities, 'prioritynumber', 'priorityname',
+                @flaw.priority ) %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label "Location", :class => 'control-label' %>
     <div class="controls well span6">
       <%= f.text_field :title, :class => 'text_field', :size => 200 %>
     </div>

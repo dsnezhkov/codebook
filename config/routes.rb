@@ -1,4 +1,5 @@
 Reporter::Application.routes.draw do
+  get "metrics/index"
   get "search/index"
   
   resources :classifications do

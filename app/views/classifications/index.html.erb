@@ -3,11 +3,9 @@
   <h3>Classifications (<%= (@classifications.count) %>)
 	<%= link_to t('.new', :default => t("helpers.links.new")),
             new_classification_path,
-            :class => 'btn btn-primary icon-plus' %></h3>
-</div>
-
-<div class="hero-unit">
-  <%= bar_chart (@charthash) %>
+            :class => 'btn btn-primary icon-plus' %> | 
+  <%= link_to 'Graph', metrics_index_path,
+            :class => 'btn btn-primary icon-align-center' %></h3>
 </div>
 
 <div class="hero-unit">

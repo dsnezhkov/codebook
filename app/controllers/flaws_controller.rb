@@ -3,11 +3,15 @@ class FlawsController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "password", only: :destroy
 
   def new
+    @priorities = Priority.all    
+    @states = State.all    
     @classification = Classification.find(params[:classification_id])
     @flaw = Flaw.new
   end
 
   def edit
+    @priorities = Priority.all    
+    @states = State.all    
     @classification = Classification.find(params[:classification_id])
     @flaw = @classification.flaws.find(params[:id])
   end

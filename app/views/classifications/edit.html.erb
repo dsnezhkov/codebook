@@ -1,10 +1,10 @@
 <%- model_class = Classification -%>
 
-<div class="page-header">
-	<h3> <%= @classification.title %> </h3>
+<div class="header">
+ 	<h3> <%= @classification.title %> </h3>
 </div>
-
 <%= render :partial => 'form' %>
+
 <script type="text/javascript">
   $('#classification_overview').wysihtml5({
    "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true

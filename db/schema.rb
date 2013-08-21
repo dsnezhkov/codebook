@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815214328) do
+ActiveRecord::Schema.define(version: 20130821191042) do
 
   create_table "classifications", force: true do |t|
     t.string   "title"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20130815214328) do
     t.text     "affects"
     t.text     "reference"
     t.integer  "priority"
+  end
+
+  create_table "priorities", force: true do |t|
+    t.integer "prioritynumber"
+    t.string  "priorityname"
+  end
+
+  create_table "states", force: true do |t|
+    t.string "statename"
   end
 
 end
