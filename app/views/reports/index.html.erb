@@ -1,0 +1,70 @@
+<% if @classifications.any? %>
+  <h2 class="well"> Code Review Report  </h2>
+  <a name="toppage"></a> 
+
+  <% @classifications.each do |classification| %>
+    <a name="topclass_<%= classification.id %>"></a> 
+    <div class="row">
+      <div class="span1"></div>
+      <div class="span8">
+      <h3>Class: <%= classification.title %></h3>
+        <dl>
+          <dt>General Overview: </dt>
+            <dd><%= raw(classification.overview) %></dd>
+          <dt>Remediation Guidance: <dt>
+            <dd><%= raw(classification.guidance)%></dd>
+          <dt>Affects: </dt>
+            <dd><%= raw(classification.affects) %></dd>
+          <dt>References:  <dt>
+            <dd><%= raw(classification.reference) %></dd>
+        </dl>
+
+        <h4>Individual Flaws In-depth</h4>
+
+        <% if classification.flaws.any? %>
+          <% classification.flaws.each do |flaw| %>
+            <div class="row">
+             <div class="span1"></div>
+             <div class="span8">
+
+              <div class="well well-small alert alert-info" >
+
+                <a name="topflaw_<%= flaw.id %>"></a> 
+
+                <dl class="dl-horizontal text-left ">
+                  <dt>Location:</dt>
+                    <dd> <%= flaw.title %></dd>
+                  <dt>Priority: </dt>
+                    <dd> <%= flaw.priority %></dd> 
+                  <dt>State: </dt>
+                    <dd><%= flaw.state %></dd>
+                </dl>
+              </div>
+                <dl>
+                    <dt>Description: </dt>
+                      <dd><%= raw(flaw.description) %></dd>
+                    <dt>Fix Recommendation: <dt>
+                      <dd><%= raw(flaw.recommendation)%></dd>
+                    <dt>Additionally Affects: </dt>
+                      <dd><%= raw(flaw.affects) %></dd>
+                    <dt>Additional References:  <dt>
+                      <dd><%= raw(flaw.reference) %></dd>
+                </dl>
+
+               <div class="pull-right">
+                 <a href="#topflaw_<%= flaw.id %>"><i class='icon-circle-arrow-up'>top flaw</i></a>
+                 <a href="#topclass_<%= classification.id %>">
+                          <i class='icon-circle-arrow-left'>top class</i></a>
+                 <a href="#toppage"><i class='icon-arrow-up'>top report</i></a>
+               </div>
+
+             </div>
+            </div>
+            <hr>
+          <% end %>
+
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

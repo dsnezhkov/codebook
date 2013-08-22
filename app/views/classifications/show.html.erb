@@ -29,6 +29,8 @@
     <li><a href="#tab1" data-toggle="tab" class="btn btn-default icon-th-list">&nbsp; Class Overview</a></li>
     <li><a href="#tab2" data-toggle="tab" class="btn btn-default icon-hand-right">&nbsp; Remediation Guidance</a></li>
     <li><a href="#tab3" data-toggle="tab" class="btn btn-default icon-fire">&nbsp; Pending Flaws</a></li>
+    <li><a href="#tab4" data-toggle="tab" class="btn btn-default icon-retweet">&nbsp; Affects</a></li>
+  </ul>
   </ul>
   <div class="tab-content">
 
@@ -54,6 +56,9 @@
             </table>
           <% end %>
          </div>
+        <div class="tab-pane well" id="tab4" >
+           <p><%= raw(@classification.affects) %></p>
+        </div>
   </div>
 </div>
 

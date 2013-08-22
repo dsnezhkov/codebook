@@ -1,4 +1,5 @@
 Reporter::Application.routes.draw do
+  get "reports/index"
   get "metrics/index"
   get "search/index"
   
