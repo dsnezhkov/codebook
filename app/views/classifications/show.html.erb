@@ -5,7 +5,7 @@
     <table>
       <tr>
         <td>
-          <%= link_to 'Classifications', 
+          <%= link_to 'All Classifications', 
             {controller: "classifications", 
               action: "index"},
               :class => 'btn btn-default icon-arrow-up'  %>
@@ -26,10 +26,11 @@
 
 <div class="tabbable">
   <ul class="nav nav-pills">
-    <li><a href="#tab1" data-toggle="tab" class="btn btn-default icon-th-list">&nbsp; Class Overview</a></li>
-    <li><a href="#tab2" data-toggle="tab" class="btn btn-default icon-hand-right">&nbsp; Remediation Guidance</a></li>
-    <li><a href="#tab3" data-toggle="tab" class="btn btn-default icon-fire">&nbsp; Pending Flaws</a></li>
-    <li><a href="#tab4" data-toggle="tab" class="btn btn-default icon-retweet">&nbsp; Affects</a></li>
+    <li><a href="#tab1" data-toggle="tab" class="btn btn-default icon-th-list">&nbsp;Class Overview</a></li>
+    <li><a href="#tab2" data-toggle="tab" class="btn btn-default icon-hand-right">&nbsp;Remediation Guidance</a></li>
+    <li><a href="#tab3" data-toggle="tab" class="btn btn-default icon-fire">&nbsp;Pending Flaws</a></li>
+    <li><a href="#tab4" data-toggle="tab" class="btn btn-default icon-retweet">&nbsp; Additionally Affects</a></li>
+    <li><a href="#tab5" data-toggle="tab" class="btn btn-default icon-retweet">&nbsp; Reference</a></li>
   </ul>
   </ul>
   <div class="tab-content">
@@ -50,6 +51,14 @@
 
           <% if @classification.flaws.any? %>
             <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>Certainty</td>
+                  <td>Priority</td>
+                  <td>Completion and Verification Progress </td>
+                </tr>
+              </thead>
               <tbody>
               <%= render :partial => "flaws/flaw", :locals => { :classification => @classification, :flaws => @classification.flaws } %>
               </tbody>
@@ -58,6 +67,9 @@
          </div>
         <div class="tab-pane well" id="tab4" >
            <p><%= raw(@classification.affects) %></p>
+        </div>
+        <div class="tab-pane well" id="tab5" >
+           <p><%= raw(@classification.reference) %></p>
         </div>
   </div>
 </div>

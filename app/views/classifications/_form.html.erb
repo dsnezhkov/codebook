@@ -1,4 +1,4 @@
-
+ <div class="span8">
   <%= form_for @classification, :html => { :class => 'form-horizontal' } do |f| %>
     <div class="form-actions" >
           <%= f.submit nil, :class => 'btn btn-primary' %>
@@ -6,42 +6,54 @@
                   classifications_path, :class => 'btn' %>
     </div>
     
-    <div class="control-group">
-      <%= f.label :title, :class => 'control-label' %>
-      <div class="controls well">
-        <%= f.text_field :title, :class => 'text_field' %>
+    <%= field_set_tag 'Class Data' do %>
+      <div class="control-group">
+        <%= f.label :title, :class => 'control-label' %>
+        <div class="controls alert alert-info">
+          <%= f.text_field :title, :class => 'text_field' %>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :overview, :class => 'control-label' %>
-      <div class="controls well">
-        <%= f.text_field :overview, 
-            :class => 'text_area',
-            :placeholder => 'Enter text ...', 
-            :style => "width: 810px; height: 450px"
-            %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :guidance, :class => 'control-label' %>
-      <div class="controls well">
-        <%= f.text_field :guidance, 
-            :class => 'text_area',
-            :placeholder => 'Enter text ...', 
+      <div class="control-group">
+        <%= f.label :overview, :class => 'control-label' %>
+        <div class="controls well">
+          <%= f.text_field :overview, 
+              :class => 'text_area',
+              :placeholder => 'Enter text ...', 
+              :style => "width: 810px; height: 450px"
+              %>
+        </div>
+        <%= f.label :guidance, :class => 'control-label' %>
+        <div class="controls well">
+          <%= f.text_field :guidance, 
+              :class => 'text_area',
+              :placeholder => 'Enter text ...', 
             :style => "width: 810px; height: 300px"
             %>
-      </div>
-    </div>
+        </div>
+       </div>
+     <% end %>
+
+    <%= field_set_tag 'Class Supporting Info' do %>
     <div class="control-group">
-      <%= f.label :affects, :class => 'control-label' %>
+      <%= f.label "Additionally Affects", :class => 'control-label' %>
       <div class="controls well">
         <%= f.text_field :affects, 
             :class => 'text_area',
             :placeholder => 'Enter text ...', 
-            :style => "width: 810px; height: 200px"
+            :style => "width: 810px; height: 150px"
+            %>
+      </div>
+      <%= f.label "References", :class => 'control-label' %>
+      <div class="controls well">
+        <%= f.text_field :reference, 
+            :class => 'text_area',
+            :placeholder => 'Enter text ...', 
+            :style => "width: 810px; height: 100px"
             %>
       </div>
     </div>
+    <%end%>
+
     <div class="form-actions" >
           <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
@@ -50,3 +62,4 @@
 
   <% end %>
 
+</div>

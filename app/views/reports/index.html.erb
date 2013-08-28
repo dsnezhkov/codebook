@@ -1,12 +1,17 @@
 <% if @classifications.any? %>
-  <h2 class="well"> Code Review Report  </h2>
+  <div>
+    <h2 class="well well-small"> Static Code Assessment Report  
+    <span class="pull-right"><%= DateTime.now.strftime('%m/%d/%Y') %> </span>
+    </h2>
+  </div>
   <a name="toppage"></a> 
+
 
   <% @classifications.each do |classification| %>
     <a name="topclass_<%= classification.id %>"></a> 
     <div class="row">
       <div class="span1"></div>
-      <div class="span8">
+      <div class="span10">
       <h3>Class: <%= classification.title %></h3>
         <dl>
           <dt>General Overview: </dt>
@@ -14,7 +19,15 @@
           <dt>Remediation Guidance: <dt>
             <dd><%= raw(classification.guidance)%></dd>
           <dt>Affects: </dt>
-            <dd><%= raw(classification.affects) %></dd>
+            <em> Targeted Locations (<small>In-depth coverage</small>):</em>
+              <ul>
+              <dd><% classification.flaws.each do |flaw| %>
+                    <li> <%= raw(flaw.title) %> </li> 
+                   <% end %>
+              </ul>
+              </dd>
+            <em> Additional Locations (<small>similar pattern</small>):</em>
+              <dd><%= raw(classification.affects) %></dd>
           <dt>References:  <dt>
             <dd><%= raw(classification.reference) %></dd>
         </dl>
@@ -25,32 +38,36 @@
           <% classification.flaws.each do |flaw| %>
             <div class="row">
              <div class="span1"></div>
-             <div class="span8">
-
-              <div class="well well-small alert alert-info" >
+             <div class="span9 well">
 
                 <a name="topflaw_<%= flaw.id %>"></a> 
 
-                <dl class="dl-horizontal text-left ">
-                  <dt>Location:</dt>
-                    <dd> <%= flaw.title %></dd>
-                  <dt>Priority: </dt>
-                    <dd> <%= flaw.priority %></dd> 
-                  <dt>State: </dt>
+                <div class="alert alert-info">
+                <dl class="dl-horizontal">
+                  <dt style="text-align: left;"  >Location:</dt>
+                    <dd> <h4> <%= flaw.title %> </h4></dd>
+                  <dt style="text-align: left;">Priority: </dt>
+                    <dd> 
+                      <% priorityM=Priority.find(Flaw.find(flaw.id).priority).priorityname %>
+                      <span class="label label-<%= get_priority_label(priorityM) %>"><%= priorityM %></span>
+                     </dd> 
+                  <dt style="text-align: left;">State: </dt>
                     <dd><%= flaw.state %></dd>
                 </dl>
-              </div>
+                </div>
+
+                <div>
                 <dl>
                     <dt>Description: </dt>
                       <dd><%= raw(flaw.description) %></dd>
-                    <dt>Fix Recommendation: <dt>
-                      <dd><%= raw(flaw.recommendation)%></dd>
-                    <dt>Additionally Affects: </dt>
-                      <dd><%= raw(flaw.affects) %></dd>
+                    <dt>Fix Recommendation (<small> specific to flaw not covered in class guidance</small>): <dt>
+                      <dd><%= raw(flaw.recommendation || "See Class Guidance")%></dd>
+                    <dt>Additionally Affects (<small> locations in file </small>): </dt>
+                      <dd><%= raw(flaw.affects || "N/A") %></dd>
                     <dt>Additional References:  <dt>
-                      <dd><%= raw(flaw.reference) %></dd>
+                      <dd><%= raw(flaw.reference || "N/A") %></dd>
                 </dl>
-
+                </div>
                <div class="pull-right">
                  <a href="#topflaw_<%= flaw.id %>"><i class='icon-circle-arrow-up'>top flaw</i></a>
                  <a href="#topclass_<%= classification.id %>">

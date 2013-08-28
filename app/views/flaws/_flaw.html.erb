@@ -1,13 +1,24 @@
 
 <% flaws.each do |flaw| %>
+<% fp = flaw.progress || 10 %>
 <tr>
-<td> <%= link_to t('.show', :default => t("helpers.links.show")),
+	<td> <%= link_to t('.show', :default => t("helpers.links.show")),
 	      classification_flaw_path(classification[:id], flaw.id), :class => 'btn btn-mini btn-normal' %>
-</td>
-<td><%= flaw.state %></td>
-<td><%= raw(get_mnemonic_priority(flaw.priority)) %></td>
-<td><%= flaw.title %></td>
-<td>
+	</td>
+	<td><%= flaw.state %></td>
+	<td><%= raw(get_mnemonic_priority(flaw.priority)) %></td>
+
+	<td>
+		 <div class="progress">
+    			<div class="bar bar-success" style="width: <%= fp %>%;"> <%= fp %> %</div>
+    			<div class="bar" style="width:  <%= (100 - fp ) %>%;"> </div>
+    	 </div>
+    	 <div>
+ 		 <%= flaw.title %>
+    	 <div>
+	</td>
+
+	<td>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
 	      edit_classification_flaw_path(classification[:id], flaw.id), :class => 'btn btn-mini btn-warning' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -15,7 +26,7 @@
 	      :method => :delete,
 	      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
 	      :class => 'btn btn-mini btn-danger' %>
-</td>
+	</td>
 </tr>
 <% end %>
 

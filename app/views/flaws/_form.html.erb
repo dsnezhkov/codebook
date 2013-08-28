@@ -1,3 +1,4 @@
+<div class="span8">
 <%= form_for ([@classification, @flaw]), :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-actions">
     <%= f.submit "Update", :class => 'btn btn-primary' %>
@@ -7,10 +8,17 @@
           id: @classification.id},
           :class => 'btn btn-default '  %>
   </div>
+
+  <div class="control-group">
+    <%= f.label :progress.to_s + " (%) ", :class => 'control-label' %>
+    <div class="controls alert alert-warning span6">
+      <%= f.select :progress, [ '10', '30', '50', '70', '100' ], :selected => @flaw.progress  %>
+    </div>
+  </div>
   
   <div class="control-group">
     <%= f.label :state, :class => 'control-label' %>
-    <div class="controls well span6">
+    <div class="controls alert alert-warning span6">
       <%= f.select :state, 
             options_from_collection_for_select(@states, 'statename', 'statename' , 
                @flaw.state) %>
@@ -19,7 +27,7 @@
 
   <div class="control-group">
     <%= f.label :priority, :class => 'control-label' %>
-    <div class="controls well span6">
+    <div class="controls alert alert-warning span6">
       <%= f.select :priority, 
             options_from_collection_for_select(@priorities, 'prioritynumber', 'priorityname',
                 @flaw.priority ) %>
@@ -28,8 +36,8 @@
 
   <div class="control-group">
     <%= f.label "Location", :class => 'control-label' %>
-    <div class="controls well span6">
-      <%= f.text_field :title, :class => 'text_field', :size => 200 %>
+    <div class="controls alert alert-info span6">
+      <%= f.text_field :title, :class => 'text_field', :size => 400 %>
     </div>
   </div>
   <div class="control-group">
@@ -47,7 +55,7 @@
       <%= f.text_area :recommendation, 
               :class => 'text_area', 
               :placeholder => 'Enter text ...', 
-              :style => "width: 90%; height: 350px" %>
+              :style => "width: 90%; height: 150px" %>
     </div>
   </div>
 
@@ -61,3 +69,4 @@
   </div>
 <% end %>
 
+</div>

@@ -4,7 +4,7 @@
     <table>
       <tr>
         <td>
-          <%= link_to 'Classifications', 
+          <%= link_to 'This Classification', 
             {controller: "classifications", 
               action: "show",
               id: @classification.id
@@ -30,10 +30,12 @@
     <li><a href="#tab2" data-toggle="tab" class="btn btn-default icon-hand-right">&nbsp; Recommendation</a></li>
   </ul>
     <div class="tab-content">
-        <div class="tab-pane hero-unit" id="tab1">
-           <p><%= raw(@flaw.description) %></p>
+        <div class="tab-pane well" id="tab1">
+           <p>
+            <%= raw(@flaw.description) %>
+           </p>
 		</div>
-        <div class="tab-pane hero-unit" id="tab2">
+        <div class="tab-pane well" id="tab2">
            <p><%= raw(@flaw.recommendation) %></p>
 		</div>
 	</div>

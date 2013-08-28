@@ -50,7 +50,8 @@ class ClassificationsController < ApplicationController
   private
 
     def classification_params
-      params.require(:classification).permit(:title, :overview, :guidance, :affects)
+      params.require(:classification).permit(:title, :overview, 
+                                    :guidance, :affects, :reference)
     end
 
 end

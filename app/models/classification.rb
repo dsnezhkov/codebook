@@ -5,5 +5,8 @@ class Classification < ActiveRecord::Base
     presence: true,
     length: { minimum: 5 }
 
+   searchable do
+	  text :affects, :stored => true
+   end
 
 end

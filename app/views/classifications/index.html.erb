@@ -17,6 +17,7 @@
       <th></th>
       <th> Class </th>
       <th> Flaws Count(#) </th>
+      <th> Review Complete </th>
       <th></th>
     </tr>
   </thead>
@@ -27,10 +28,27 @@
                       classification_path(classification), :class => 'btn btn-normal icon-eye-open ' %>
 	</td>	
         <td><%= classification.title %></td>
+        <td>
+            <span class="badge badge-inverse ">
+            <%= (classification.flaws.any?) ? classification.flaws.count : "None" %>
+            </span>
+        </td>
         
         <td>
-            <span class="badge badge-inverse">
-            <%= (classification.flaws.any?) ? classification.flaws.count : "None" %>
+            <span class="badge">
+            <%= 
+                if (classification.flaws.any?)
+                  total_possible=(classification.flaws.count * 100 )
+                  total_exist=0
+
+                  classification.flaws.each { |fl| 
+                      total_exist += (fl.progress || 10)
+                  }
+                  ((100 * total_exist) / total_possible ).to_s + "%"
+                else
+                  "0 %"
+                end
+            %>
             </span>
         </td>
         <td>

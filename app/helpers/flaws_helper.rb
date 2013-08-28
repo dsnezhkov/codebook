@@ -1,5 +1,15 @@
 module FlawsHelper
 
+	def get_priority_label(priority)
+		case priority
+			when "High" then "important"
+			when "Medium" then "warning"
+			when "Low" then "info"
+			when "Info" then "inverse"
+			else
+			 "success"
+		end
+	end
 	def get_mnemonic_priority(priority)
 		label=nil
 		priorities = { 
