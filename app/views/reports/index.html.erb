@@ -6,13 +6,28 @@
   </div>
   <a name="toppage"></a> 
 
+  <h1> Metrics </h1>
 
+  <div class="row"></div>
+    <dl class="dl-horizontal">
+      <dt> Flaws </dt>
+        <dd><%= bar_chart @fbchash %></dd>
+      <dt> Priority </dt>
+        <dd><%= pie_chart @fbphash %></dd>
+    </dl>
+  </div>
+
+  <h1> Findings </h1>
   <% @classifications.each do |classification| %>
     <a name="topclass_<%= classification.id %>"></a> 
     <div class="row">
       <div class="span1"></div>
       <div class="span10">
-      <h3>Class: <%= classification.title %></h3>
+      <h3>Class: <%= classification.title %>
+            <sup>(<span class="badge badge-inverse ">
+            <%= (classification.flaws.any?) ? classification.flaws.count : "None" %>
+            </span>)</sup>
+      </h3>
         <dl>
           <dt>General Overview: </dt>
             <dd><%= raw(classification.overview) %></dd>
