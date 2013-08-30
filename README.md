@@ -65,7 +65,7 @@ What it does:
 ##### Start the app:
 
 ###### every time  you need to make sure the search is running. Run:
-`start_solr.sh`
+`./start_solr.sh`
 
 ###### then start the app
 `rails -s`
