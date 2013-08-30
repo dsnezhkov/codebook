@@ -8,7 +8,13 @@
 - to free analyst from specific tools and their rigid report structure
 - (future) to be able to extend the framework to dynamic test resutls and correlation
 
-### Pre-Requisites:
+**Notes:**
+ - this code has no verification or securituy of any kind  yet. This is a single user workbook. Do not put it out on the public internet, it is not meant to serve teams (yet). This is also not a production grade code , and is based on sqlite for ease oof use and portability.
+ - If you need to share your findings you can rake db:load:data to attach the database.
+ - participation to extend and improve the code is more than welcome.
+
+### Pre-Requisites (Optional):
+This is what I have but you may have a different setup
 - - - 
 #### Update RVM:
 `rvm get stable`
@@ -86,9 +92,6 @@ this wil start the app on [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
 **Notes:**
  - when first time editing and deleting classification categories and flaws you will be asked to authenticate. This is not a security measure by any means (user:admin, password: password), this is done purely so you don't inadvertently delete or modify things if what you mean is a read-only. This setup will go away when robust user logons with roles implemented.
- - this code has no verification yet. This is a single user workbook. Do not put it out on the public internet, it is not meant to serve teams (yet). This is also not a production grade code , and is based on sqlite for ease and portability.
- - If you need to share your findings you can rake db:load:data to attach the database.
- - participation to extend and improve the code is more than welcome.
  
 
 ###### View screenshots
