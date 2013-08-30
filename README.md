@@ -72,8 +72,16 @@ What it does:
 
 this wil start the app on [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
+### Usage and Features
 
 Note: when first time editing and deleting classification categories and flaws you will be asked to authenticate. This is not a security measure by any means (user:admin, password: password), this is done purely so you don't inadvertently delete or modify things if what you mean is a read-only. This setup will go away when robust user logons with roles implemented.
 
-
-
+###### View screenshots
+![Categories](doc/Categories.png "Categories")
+- - -
+![Flaws](doc/Flaws.png "Flaws")
+- - -
+![Metrics](doc/Metrics.png "Metrics")
+- - -
+![Reports](doc/Reports.png "Reports")
+- - -
