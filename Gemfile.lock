@@ -113,6 +113,7 @@ GEM
     sunspot_rails (2.0.0)
       nokogiri
       sunspot (= 2.0.0)
+    sunspot_solr (2.0.0)
     thor (0.18.1)
     thread_safe (0.1.2)
       atomic
@@ -146,7 +147,9 @@ DEPENDENCIES
   sdoc
   seed_dump
   sqlite3
+  sunspot
   sunspot_rails
+  sunspot_solr
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

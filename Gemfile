@@ -45,7 +45,9 @@ gem 'jbuilder', '~> 1.2'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap-wysihtml5-rails'
 gem "chartkick"
+gem 'sunspot'
 gem 'sunspot_rails'
+gem 'sunspot_solr'
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 gem 'seed_dump'
 
