@@ -5,6 +5,7 @@
 - to run some metrics for them
 - to have control over report generation
 - to have search capabilities
+- to free analyst from specific tools and their rigid report structure
 - (future) to be able to extend the framework to dynamic test resutls and correlation
 
 ### Pre-Requisites:
