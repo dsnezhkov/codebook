@@ -68,7 +68,7 @@ What it does:
 `./start_solr.sh`
 
 ###### then start the app
-`rails -s`
+`rails s`
 
 this wil start the app on [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
