@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jetthoughts/yaml_db.git
+  revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
+  ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
+  specs:
+    yaml_db (0.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,7 +34,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.13)
-    bootstrap-wysihtml5-rails (0.3.1.21)
+    bootstrap-wysihtml5-rails (0.3.1.22)
       railties (>= 3.0)
     builder (3.1.4)
     chartkick (1.2.0)
@@ -39,11 +46,10 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     erubis (2.7.0)
-    execjs (1.4.0)
-      multi_json (~> 1.0)
+    execjs (2.0.1)
     hike (1.2.3)
     i18n (0.6.5)
-    jbuilder (1.5.0)
+    jbuilder (1.5.1)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     jquery-rails (3.0.4)
@@ -90,6 +96,7 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    seed_dump (0.6.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -121,7 +128,7 @@ GEM
       rails (>= 3.1)
       railties (>= 3.1)
     tzinfo (0.3.37)
-    uglifier (2.1.2)
+    uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
 
@@ -137,8 +144,10 @@ DEPENDENCIES
   rails (= 4.0.0)
   sass-rails
   sdoc
+  seed_dump
   sqlite3
   sunspot_rails
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  yaml_db!

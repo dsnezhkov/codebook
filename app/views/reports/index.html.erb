@@ -30,21 +30,21 @@
       </h3>
         <dl>
           <dt>General Overview: </dt>
-            <dd><%= raw(classification.overview) %></dd>
+            <dd><%= sanitize(classification.overview) %></dd>
           <dt>Remediation Guidance: <dt>
-            <dd><%= raw(classification.guidance)%></dd>
+            <dd><%= sanitize(classification.guidance)%></dd>
           <dt>Affects: </dt>
             <em> Targeted Locations (<small>In-depth coverage</small>):</em>
               <ul>
               <dd><% classification.flaws.each do |flaw| %>
-                    <li> <%= raw(flaw.title) %> </li> 
+                    <li> <%= sanitize(flaw.title) %> </li> 
                    <% end %>
               </ul>
               </dd>
             <em> Additional Locations (<small>similar pattern</small>):</em>
-              <dd><%= raw(classification.affects) %></dd>
+              <dd><%= sanitize(classification.affects) %></dd>
           <dt>References:  <dt>
-            <dd><%= raw(classification.reference) %></dd>
+            <dd><%= sanitize(classification.reference) %></dd>
         </dl>
 
         <h4>Individual Flaws In-depth</h4>
@@ -52,7 +52,6 @@
         <% if classification.flaws.any? %>
           <% classification.flaws.each do |flaw| %>
             <div class="row">
-             <div class="span1"></div>
              <div class="span9 well">
 
                 <a name="topflaw_<%= flaw.id %>"></a> 
@@ -74,13 +73,13 @@
                 <div>
                 <dl>
                     <dt>Description: </dt>
-                      <dd><%= raw(flaw.description) %></dd>
+                      <dd><%= sanitize(flaw.description) %></dd>
                     <dt>Fix Recommendation (<small> specific to flaw not covered in class guidance</small>): <dt>
-                      <dd><%= raw(flaw.recommendation || "See Class Guidance")%></dd>
+                      <dd><%= sanitize(flaw.recommendation || "See Class Guidance")%></dd>
                     <dt>Additionally Affects (<small> locations in file </small>): </dt>
-                      <dd><%= raw(flaw.affects || "N/A") %></dd>
+                      <dd><%= sanitize(flaw.affects || "N/A") %></dd>
                     <dt>Additional References:  <dt>
-                      <dd><%= raw(flaw.reference || "N/A") %></dd>
+                      <dd><%= sanitize(flaw.reference || "N/A") %></dd>
                 </dl>
                 </div>
                <div class="pull-right">
