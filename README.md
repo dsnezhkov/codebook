@@ -1,3 +1,5 @@
+### Pre-Requisites:
+- - - 
 #### Update RVM:
 `rvm get stable`
  
@@ -39,7 +41,16 @@ this will install bunch of dependencies and gems for rails 4
 ##### You can create your ProjectName directory
 `mkdir ~/ProjectName; cd ~/ProjectName`
 
-##### run  setup. you may need to have git installed on your machine (apt-get install git-core) before runing setup
+
+### Setup 
+- - - 
+#####  Clone the remote GIT repository to local
+`git clone https://github.com/dsnezhkov/codebook.git`
+
+`cd codebook`
+
+##### run  setup. you may need to have git-core installed on your machine (apt-get install git-core) before runing setup
+
 `./setup.sh`
 
 What it does:
@@ -49,6 +60,8 @@ What it does:
     + sets up SOLR for search across models
     
 
+### Run
+- - -
 ##### Start the app:
 
 ###### every time  you need to make sure the search is running. Run:
