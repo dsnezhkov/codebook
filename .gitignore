@@ -17,5 +17,6 @@ tmp
 solr
 test
 db/seeds.rb
+db/migrate/*
 db/*.dump
 db/*.yml
