@@ -1,10 +1,10 @@
- 
+#!/bin/bash 
 
 # install dependencies for codebook app (listed in Gemfile)
-$ bundle install
+bundle install
 
 # Create schema in database (db/development.sqlite3)
-$ rake db:schema:load
+rake db:schema:load
 
 # seed priorities and states
 rake db:seed
