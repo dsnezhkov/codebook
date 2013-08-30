@@ -12,10 +12,10 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log
-/tmp
-/solr
-/test
-/db/seeds.rb
-/db/*.dump
-/db/*.yml
+log
+tmp
+solr
+test
+db/seeds.rb
+db/*.dump
+db/*.yml
