@@ -1,6 +1,4 @@
-# clone the remote repository to local
-git clone https://github.com/dsnezhkov/codebook.git
-cd codebook 
+ 
 
 # install dependencies for codebook app (listed in Gemfile)
 $ bundle install
@@ -19,3 +17,6 @@ sunspot-solr start -p 8982 -d solr/data/development -s solr --pid-dir=tmp/pids -
 
 # This reindexes existing models in database. This can be used any time
 rake sunspot:reindex
+
+# stop search 
+sunspot-solr stop -p 8982 
