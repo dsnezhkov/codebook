@@ -51,13 +51,16 @@ What it does:
 
 ##### Start the app:
 
+###### every time  you need to make sure the search is running. Run:
+`start_solr.sh`
+
+###### then start the app
 `rails -s`
 
 this wil start the app on [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
 
 Note: when first time editing and deleting classification categories and flaws you will be asked to authenticate. This is not a security measure by any means (user:admin, password: password), this is done purely so you don't inadvertently delete or modify things if what you mean is a read-only. This setup will go away when robust user logons with roles implemented.
-
 
 
 
